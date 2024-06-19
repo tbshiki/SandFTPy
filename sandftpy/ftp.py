@@ -1,4 +1,5 @@
 import ftplib
+import urllib.parse
 import os
 from pathlib import Path
 from datetime import datetime
@@ -55,16 +56,3 @@ def upload_files_via_ftp(
     print(f"アップロード完了")
 
     return remotepath_list
-
-
-# 実行例
-dct_ftp = {
-    "upload_hostname": "ftp.example.com",
-    "upload_port": 21,
-    "upload_ftpusername": "username",
-    "upload_password": "password",
-    "upload_remotedir": "/remote/dir/",
-}
-
-list_upload_files = [Path(tmp_dir) / "filtered_data.csv"]
-upload_files_via_ftp(list_upload_files, dct_ftp)
